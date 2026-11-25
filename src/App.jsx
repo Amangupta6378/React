@@ -1,8 +1,22 @@
-// import React from 'react';
+// import React, { useState } from 'react';
 
-import { useState } from "react"
-import Counter2 from "./Counter2"
-import UseRef from "./UseRef";
+// import AddUser from "./AddUser"
+// import DisplayUser from "./DisplayUser"
+import { useState } from 'react';
+import Component1 from './context api/Component1';
+import SubjectContext from './context api/Context_api';
+import Subject from './context api/Subject';
+import Component4 from './context api/Component4';
+import {  Link, Route, Routes } from 'react-router-dom';
+import Home from './components/Home';
+import About from './components/About';
+import Profile from './components/Profile';
+import Contact from './components/Contact';
+import Navbar from './components/Navbar';
+
+// import { useState } from "react"
+// import Counter2 from "./Counter2"
+// import UseRef from "./UseRef";
 
 // import Counter from "./Counter"
 
@@ -11,6 +25,8 @@ import UseRef from "./UseRef";
 
 
 const App = () => {
+  // const [name, setName] = useState("Aman Gupta")
+  const [subject, setSubject] = useState("English")
 
 
 
@@ -86,32 +102,60 @@ const App = () => {
   //   },
   // ]
 
-  const [count, setCount] = useState(0);
-  const [data, setData] = useState(0);
+  // const [count, setCount] = useState(0);
+  // const [data, setData] = useState(0);
 
-  const [display, setDisplay] = useState(true);
+  // const [display, setDisplay] = useState(true);
 
 
 
 
   return (
-    <div>
-      {/* <College collegeData={collegeData}/> */}
-      {/* <Counter2 count={count} data={data}/> */}
-    {
+
+    
+      <SubjectContext.Provider value={subject} >
+        <div>
+          {/* <select onChange={(event) => setSubject(event.target.value)}>
+            <option value="">Select Subject</option>
+            <option value="Math">Math</option>
+            <option value="English">English</option>
+            <option value="History">History</option>
+            <option value="Hindi">Hindi</option>
+          </select> */}
+          {/* <College collegeData={collegeData}/> */}
+          {/* <Counter2 count={count} data={data}/> */}
+          {/* {
       display ? <Counter2 count={count} data={data} /> : null
     }
       
       <button onClick={() => setCount(count + 1)}>Count : {count}</button>
-      <button onClick={() => setData(data + 1)}>Data : {data}</button>
-      {/* <button onClick={()=>setDisplay(!display)}>Toggle</button> */}
-      <button onClick={()=>setDisplay(!display)}>Toggle</button>
+      <button onClick={() => setData(data + 1)}>Data : {data}</button> */}
+          {/* <button onClick={()=>setDisplay(!display)}>Toggle</button> */}
+          {/* <button onClick={()=>setDisplay(!display)}>Toggle</button> */}
 
-      <UseRef/>
-      
-      
+          {/* <UseRef/> */}
+          {/* <AddUser setName = {setName}/>
+      <DisplayUser name={name}/> */}
+{/* 
+          <h1>Context api</h1>
+          <Component1 /> */}
 
-    </div>
+          <Navbar/>
+
+
+          <Routes>
+            <Route path='/' element={<Home/>} />
+            <Route path='/about' element={<About/>} />
+            <Route path='/profile' element={<Profile/>} />
+            <Route path='/contact' element={<Contact/>} />
+
+          </Routes>
+
+
+        </div>
+      </SubjectContext.Provider>
+   
+
   )
 }
 
