@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Counter2 from "./Counter2"
+import UseRef from "./UseRef";
 
 // import Counter from "./Counter"
 
@@ -86,9 +87,9 @@ const App = () => {
   // ]
 
   const [count, setCount] = useState(0);
-  const [data, setData] = useState(0)
+  const [data, setData] = useState(0);
 
-  const [display, setDisplay] = useState(true)
+  const [display, setDisplay] = useState(true);
 
 
 
@@ -96,14 +97,18 @@ const App = () => {
   return (
     <div>
       {/* <College collegeData={collegeData}/> */}
-      {/* <Counter/> */}
+      {/* <Counter2 count={count} data={data}/> */}
     {
       display ? <Counter2 count={count} data={data} /> : null
     }
       
       <button onClick={() => setCount(count + 1)}>Count : {count}</button>
       <button onClick={() => setData(data + 1)}>Data : {data}</button>
+      {/* <button onClick={()=>setDisplay(!display)}>Toggle</button> */}
       <button onClick={()=>setDisplay(!display)}>Toggle</button>
+
+      <UseRef/>
+      
       
 
     </div>

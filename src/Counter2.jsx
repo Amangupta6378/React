@@ -14,6 +14,7 @@ const Counter2 = ({count,data}) => {
 
   
 
+    
     useEffect(()=>{
           handleData()
     },[data])
@@ -22,6 +23,16 @@ const Counter2 = ({count,data}) => {
     useEffect(()=>{
         handleCount();
     },[count])
+
+    useEffect(()=>{
+        return()=>{
+            console.log("Component unmount")
+        }
+    },[])
+
+    // useEffect(()={},[]) = When component is rendered  == mounting
+    // useEffect(()=>{}) = when component is re-rendered == update
+    // useEffect(()=>{ return }) = component finised == unmount
 
 
     return (
@@ -32,4 +43,4 @@ const Counter2 = ({count,data}) => {
     )
 }
 
-export default Counter2
+export default Counter2;
