@@ -2,17 +2,22 @@
 
 // import AddUser from "./AddUser"
 // import DisplayUser from "./DisplayUser"
-import { useState } from 'react';
-import Component1 from './context api/Component1';
+// import { useState } from 'react';
+// import Component1 from './context api/Component1';
 import SubjectContext from './context api/Context_api';
-import Subject from './context api/Subject';
-import Component4 from './context api/Component4';
+// import Subject from './context api/Subject';
+// import Component4 from './context api/Component4';
 import {  Link, Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
 import About from './components/About';
 import Profile from './components/Profile';
 import Contact from './components/Contact';
 import Navbar from './components/Navbar';
+import Page_not_found from './components/Page-not-found';
+import Api from './API/Api';
+import User from './components/User';
+import UserDetails from './components/UserDetails';
+
 
 // import { useState } from "react"
 // import Counter2 from "./Counter2"
@@ -26,7 +31,7 @@ import Navbar from './components/Navbar';
 
 const App = () => {
   // const [name, setName] = useState("Aman Gupta")
-  const [subject, setSubject] = useState("English")
+  // const [subject, setSubject] = useState("English")
 
 
 
@@ -113,7 +118,7 @@ const App = () => {
   return (
 
     
-      <SubjectContext.Provider value={subject} >
+      <SubjectContext.Provider  >
         <div>
           {/* <select onChange={(event) => setSubject(event.target.value)}>
             <option value="">Select Subject</option>
@@ -145,9 +150,13 @@ const App = () => {
 
           <Routes>
             <Route path='/' element={<Home/>} />
-            <Route path='/about' element={<About/>} />
-            <Route path='/profile' element={<Profile/>} />
+            <Route path='/user/about' element={<About/>} />
+            <Route path='/name/profile' element={<Profile/>} />
             <Route path='/contact' element={<Contact/>} />
+            <Route path='/users' element={<User/>} />
+            <Route path='/users/:id' element={<UserDetails/>} />
+            <Route path='/*' element={<Page_not_found/>} />
+          
 
           </Routes>
 
